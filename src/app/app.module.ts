@@ -6,6 +6,8 @@ import {TodolistitemComponent} from "./component/todolistitem/todolistitem.compo
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatCheckboxModule} from "@angular/material";
 import {FormsModule} from "@angular/forms";
+import {TodoService} from "./service/todo.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
     declarations: [
@@ -18,8 +20,11 @@ import {FormsModule} from "@angular/forms";
         BrowserAnimationsModule,
         MatCheckboxModule,
         FormsModule,
+        HttpClientModule
     ],
-    providers: [],
+    providers: [
+        TodoService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,1 +1,1 @@
-<app-todolistitem *ngFor="let item of todoItemList" [todoListItem]="item"></app-todolistitem>
+<app-todolistitem *ngFor="let item of todoItemList$ | async" [todoListItem]="item" (isDoneChange)="onTodoListItemChange($event)"></app-todolistitem>

@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "id": "ae038553-d74c-416d-9d29-f36f95c44bfa",
+      "isDone": true,
+      "text": "Sample 1st entry"
+    },
+    {
+      "id": "af038553-d74c-416d-9d29-f36f95c44bfa",
+      "isDone": false,
+      "text": "Sample 2nd entry"
+    },
+    {
+      "id": "afe38553-d74c-416d-9d29-f36f95c44bfa",
+      "isDone": true,
+      "text": "Sample srtg entry"
+    }
+  ]
+}

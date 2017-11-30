@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
+    "start:mockbackend": "json-server --watch ./resource/mock/db.json --port 3004",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
@@ -37,6 +38,7 @@
     "codelyzer": "^4.0.1",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
+    "json-server": "^0.12.1",
     "karma": "~1.7.0",
     "karma-chrome-launcher": "~2.1.1",
     "karma-cli": "~1.0.1",
@@ -46,6 +48,7 @@
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "^5.7.0",
-    "typescript": "~2.4.2"
+    "typescript": "~2.4.2",
+    "uuid": "^3.1.0"
   }
 }

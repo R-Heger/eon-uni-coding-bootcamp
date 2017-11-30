@@ -1,5 +1,8 @@
 import {Component} from "@angular/core";
 import {ITodoListItem} from "../todolistitem/todolistitem.type";
+import {TodoService} from "../../service/todo.service";
+import {Observable} from "rxjs/Observable";
+import "rxjs/add/operator/map";
 
 @Component({
     selector: "app-todolist",
@@ -7,25 +10,16 @@ import {ITodoListItem} from "../todolistitem/todolistitem.type";
     templateUrl: "./todolist.html"
 })
 export class TodolistComponent {
-    public todoItemList: ITodoListItem[];
+    public todoItemList$: Observable<ITodoListItem[]>;
 
-    constructor() {
-        this.todoItemList = [
-            {
-                id: "null",
-                isDone: false,
-                text: "voll der tolle Text"
-            },
-            {
-                id: "eins",
-                isDone: true,
-                text: "noch tollerer Text"
-            },
-            {
-                id: "zwei",
-                isDone: false,
-                text: "fantanstomatischer Text"
-            }
-        ];
+    constructor(
+        private todoService: TodoService
+    ) {
+        this.todoItemList$ = this.todoService.getTodoListObservable();
     }
+
+    public onTodoListItemChange($event: ITodoListItem): void {
+        this.todoService.update($event).subscribe(() => console.log("refreshed after change"));
+    }
+
 }

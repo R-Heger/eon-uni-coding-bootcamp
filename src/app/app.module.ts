@@ -8,18 +8,19 @@ import {MatCheckboxModule} from "@angular/material";
 import {FormsModule} from "@angular/forms";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TodolistComponent,
-    TodolistitemComponent,
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatCheckboxModule,
-    FormsModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        TodolistComponent,
+        TodolistitemComponent,
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatCheckboxModule,
+        FormsModule,
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

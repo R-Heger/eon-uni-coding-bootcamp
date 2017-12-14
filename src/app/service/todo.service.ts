@@ -1,14 +1,12 @@
 import {Injectable} from "@angular/core";
 import {ITodoListItem} from "../component/todolistitem/todolistitem.type";
 import {Observable} from "rxjs/Observable";
-import "rxjs/add/observable/of";
 import {HttpClient} from "@angular/common/http";
-import "rxjs/add/operator/first";
-import {Subject} from "rxjs/Subject";
-import "rxjs/add/operator/do";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
-import "rxjs/add/observable/interval";
-import "rxjs/add/operator/filter";
+import * as v4 from "uuid/v4";
+import "rxjs/add/operator/first";
+import "rxjs/add/operator/do";
+
 
 
 @Injectable()
@@ -23,10 +21,24 @@ export class TodoService {
         this.fetch();
     }
 
-    private fetch(): void {
-        this.httpClient.get<ITodoListItem[]>("http://localhost:3004/todos").first().subscribe((res) => {
-            this.todoListSubject.next(res);
-        });
+    public fetch(): void {
+        this.httpClient.get<ITodoListItem[]>("http://localhost:3004/todos").first()
+            .subscribe((res) => {
+                this.todoListSubject.next(res);
+            }, (error) => {
+                console.log("httpClient.get for todos caused error", error);
+            });
+    }
+
+    public postNewItem(todoText: string): void {
+        const newItem: ITodoListItem = {
+            id: v4(),
+            isDone: false,
+            text: todoText
+        };
+        this.httpClient.post<ITodoListItem>("http://localhost:3004/todos/", newItem).first().subscribe(
+            () => this.fetch()
+        );
     }
 
     public getTodoListObservable(): Observable<ITodoListItem[]> {
@@ -37,5 +49,9 @@ export class TodoService {
         return this.httpClient.put<ITodoListItem>(`http://localhost:3004/todos/${todoListItem.id}`, todoListItem)
             .first()
             .do(() => this.fetch());
+    }
+
+    public remove(id: string): Observable<any> {
+        return this.httpClient.delete(`http://localhost:3004/todos/${id}`);
     }
 }

@@ -2,18 +2,43 @@
   "todos": [
     {
       "id": "ae038553-d74c-416d-9d29-f36f95c44bfa",
-      "isDone": true,
+      "isDone": false,
       "text": "Sample 1st entry"
     },
     {
       "id": "af038553-d74c-416d-9d29-f36f95c44bfa",
-      "isDone": false,
+      "isDone": true,
       "text": "Sample 2nd entry"
     },
     {
       "id": "afe38553-d74c-416d-9d29-f36f95c44bfa",
       "isDone": true,
       "text": "Sample srtg entry"
+    },
+    {
+      "id": "7d8f79fa-df78-418e-a3bd-3f25823c84dd",
+      "isDone": false,
+      "text": "new todo"
+    },
+    {
+      "id": "1275c4ef-7837-4e5a-808c-6ee11af15892",
+      "isDone": false,
+      "text": "awefawef"
+    },
+    {
+      "id": "f3b88d35-94e0-493b-ad1c-24085274c71c",
+      "isDone": false,
+      "text": "fefe"
+    },
+    {
+      "id": "f610bc84-a13c-45e7-b028-59c5d7ee588f",
+      "isDone": false,
+      "text": "ergsergs"
+    },
+    {
+      "id": "a6d61f25-7b50-4284-9b14-0cd3201deaac",
+      "isDone": false,
+      "text": "kofefe"
     }
   ]
 }

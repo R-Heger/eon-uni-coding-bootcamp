@@ -1,1 +1,38 @@
-<app-todolistitem *ngFor="let item of todoItemList$ | async" [todoListItem]="item" (isDoneChange)="onTodoListItemChange($event)"></app-todolistitem>
+<div class="inputcontainer">
+    <mat-form-field>
+        <input matInput [(ngModel)]="userinput" (keyup)="submitOnEnter($event)" placeholder="add your new todo">
+    </mat-form-field>
+    <button mat-button (click)="submitNewItem()">Submit</button>
+    <button mat-button (click)="deleteDoneItems()">Delete done</button>
+</div>
+
+<mat-tab-group>
+    <mat-tab label="All">
+        <div class="wrapper">
+            <app-todolistitem *ngFor="let item of todoItemList$ | async; trackBy: item?.id"
+                              [todoListItem]="item"
+                              (isDoneChange)="onTodoListItemChange($event)">
+            </app-todolistitem>
+        </div>
+    </mat-tab>
+    <mat-tab label="Done">
+        <div class="wrapper">
+            <app-todolistitem *ngFor="let item of doneTodoItemList$ | async; trackBy: item?.id"
+                              [todoListItem]="item"
+                              (isDoneChange)="onTodoListItemChange($event)">
+            </app-todolistitem>
+        </div>
+    </mat-tab>
+    <mat-tab label="UnDone">
+        <div class="wrapper">
+            <app-todolistitem *ngFor="let item of undoneTodoItemList$ | async; trackBy: item?.id"
+                              [todoListItem]="item"
+                              (isDoneChange)="onTodoListItemChange($event)">
+            </app-todolistitem>
+        </div>
+    </mat-tab>
+</mat-tab-group>
+
+
+
+

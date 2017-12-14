@@ -4,7 +4,7 @@ import {AppComponent} from "./app.component";
 import {TodolistComponent} from "./component/todolist/todolist.component";
 import {TodolistitemComponent} from "./component/todolistitem/todolistitem.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MatCheckboxModule} from "@angular/material";
+import {MatButtonModule, MatCheckboxModule, MatInputModule, MatTabsModule} from "@angular/material";
 import {FormsModule} from "@angular/forms";
 import {TodoService} from "./service/todo.service";
 import {HttpClientModule} from "@angular/common/http";
@@ -19,6 +19,9 @@ import {HttpClientModule} from "@angular/common/http";
         BrowserModule,
         BrowserAnimationsModule,
         MatCheckboxModule,
+        MatInputModule,
+        MatButtonModule,
+        MatTabsModule,
         FormsModule,
         HttpClientModule
     ],
